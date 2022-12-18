@@ -14,12 +14,13 @@
     </style>
 </head>
 <body>
+    <form>
     <br>
     <center><big>
     <h1>DETAILS</h1>
     <div class="login-form">
     <fieldset>
-    <legend>CONTACT DETAILS</legend><br>
+    <legend><h3>CONTACT DETAILS</h3></legend><br>
     <label for="fname">First name:</label>
     <input type="text" id="fname" name="fname"><br><br>
     <label for="lname">Last name:</label>
@@ -36,8 +37,7 @@
     <input type="number" id="phone" name="phone"><br><br>
     </fieldset>
     <fieldset>
-        
-    <legend>MEDICAL DETAILS</legend><br>  
+    <legend><h3>PERSONAL DETAILS</h3></legend><br>  
     <label for="dob">Date of Birth:</label>
     <input type="date" id="dob" name="dob"><br><br>
     <label for="blood">Blood Group:</label>
@@ -53,10 +53,47 @@
     <label for="transgender">Transgender</label><br>
     <input type="radio" id="others" name="gender" value="Others">
     <label for="others">Others</label><br>
+    <br>
+    <label for="pic">Upload your pic:</label>
+    <input class="file-upload-input" type="file" onchange="readURL(this)" accept="Image/* "><br><br>
+    <label for="ephone">Emergency Phone no:</label>
+    <input type="number" id="ephone" name="ephone"><br><br>
+    <label for="eemail">Emergency Email ID:</label>
+    <input type="email" id="eemail" name="eemail" onchange=""><br><br>
+    <h3>Find your Current location</h3>  
+    <button onclick="getlocation()">Click me</button>  
+    <div id="location"></div>  
+    <script>  
+        var x= document.getElementById("location");  
+        function getlocation() {  
+            if(navigator.geolocation){  
+                navigator.geolocation.getCurrentPosition(showPosition)  
+              }  
+            else  
+            {  
+                 alert("Sorry! your browser is not supporting")  
+             } }  
+           
+         function showPosition(position){  
+           var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";  
+            document.getElementById("location").innerHTML = x;  
+         }  
+    </script>
+      
     <p id="submit_button" ><button type="button" >Sumbit </button></p>
-    </center></big>
+    
 </fieldset>
+<fieldset>
+    <legend><h3>MEDICAL DETAILS</h3></legend><br>
+    <label for="hospital">Hospital name:</label>
+    <input type="text" id="hospital" name="hospital"><br><br>
+    <label for="hos no">Hospital phone no:</label>
+    <input type="number" id="hos no" name="hos no"><br><br>
+
+</fieldset>
+</center></big>
     
 </div>
+</form>
 </body>
 </html>
